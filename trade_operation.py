@@ -465,33 +465,3 @@ def backtesting(df, gene, sl_target, wallet=10000, commission=.006, trade_on_clo
 
 
 
-if __name__ == '__main__':
-
-    initial_wallet = 20000
-    stake_amt = 5000
-    tp_target=0.1
-    sl_target=-0.015
-
-    if not os.path.isfile('data/all_feat_working.csv'):
-        df = retrieve_data()
-        df = generate_features(df)
-        save_file(df)
-        print('Job done. File saved.')
-
-    else:
-        df = pd.read_csv('data/all_feat_working.csv')
-
-
-    gene = [ 19,  65,  68,  13,  32,  20,  78, 124,  76,  12,  81,  99,  90,
-        16,   0,   0,   0,   0,   1,   0,   0,   1,   1,   0,   0,   0,
-         0,   0,   0,   0,   1,   0,   6]
-    metadata = gene[:14]
-    metamask =  gene[14:-1]
-    tp_target = gene[-1]/100
-    
-    long_signal, short_signal = populate_entry_trend(df, metarange, metamask)
-    trade_data = buy_sell(df, long_signal, short_signal, tp_target, sl_target, stake_amt)
-    trade_cnt, netprofit, profit_perc, winrate = fitness_fn(trade_data, initial_wallet)
-
-    print(trade_cnt, netprofit, profit_perc, winrate)
-
