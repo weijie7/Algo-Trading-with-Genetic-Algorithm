@@ -30,8 +30,7 @@ Algo trading with strategy customization, genetic algorithm for hyper params opt
 - Rule 9: fastk (data) CO fastd (data)
 - Rule 10: closed_price (data) > ema3 (1 variable for period)
 
-Total 8 variables for buy signal
-Another 10 variables as boolean mask to activate / deactivate each rules
+Total 8 variables for buy signal. Another 10 variables as boolean mask to activate / deactivate each rules
 
 
 ### Sell signal
