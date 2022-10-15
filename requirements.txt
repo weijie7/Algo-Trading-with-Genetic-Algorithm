@@ -1,0 +1,7 @@
+flask
+gunicorn
+requests
+kucoin-futures-python
+ta
+git+https://github.com/twopirllc/pandas-ta.git@development
+backtesting
